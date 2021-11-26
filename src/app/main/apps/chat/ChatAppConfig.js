@@ -8,8 +8,8 @@ export const ChatAppConfig = {
     },
     routes  : [
         {
-            path     : '/apps/chat',
+            path     : '/apps/chat/',
             component: React.lazy(() => import('./ChatApp'))
-        }
+        },
     ]
 };

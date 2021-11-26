@@ -43,7 +43,7 @@ const navigationConfig = [
             title: "Banners",
             type: "item",
             icon: "businessCenter",
-            url: "/apps/notes",
+            url: "/apps/Banner",
           },
         ],
       },

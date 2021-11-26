@@ -10,18 +10,20 @@ import {ECommerceAppConfig} from './e-commerce/ECommerceAppConfig';
 import {ScrumboardAppConfig} from './scrumboard/ScrumboardAppConfig';
 import {AcademyAppConfig} from './academy/AcademyAppConfig';
 import {NotesAppConfig} from './notes/NotesAppConfig';
+import { BannerConfig } from "./Banner/BannerConfig";
 
 export const appsConfigs = [
-    AnalyticsDashboardAppConfig,
-    ProjectDashboardAppConfig,
-    MailAppConfig,
-    TodoAppConfig,
-    FileManagerAppConfig,
-    ContactsAppConfig,
-    CalendarAppConfig,
-    ChatAppConfig,
-    ECommerceAppConfig,
-    ScrumboardAppConfig,
-    AcademyAppConfig,
-    NotesAppConfig
+  AnalyticsDashboardAppConfig,
+  BannerConfig,
+  ProjectDashboardAppConfig,
+  MailAppConfig,
+  TodoAppConfig,
+  FileManagerAppConfig,
+  ContactsAppConfig,
+  CalendarAppConfig,
+  ChatAppConfig,
+  ECommerceAppConfig,
+  ScrumboardAppConfig,
+  AcademyAppConfig,
+  NotesAppConfig,
 ];
