@@ -12,6 +12,7 @@ import ContactSidebar from './ContactSidebar';
 import UserSidebar from './UserSidebar';
 import reducer from './store/reducers';
 import {makeStyles} from '@material-ui/styles';
+import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 
 const drawerWidth = 400;
 const headerHeight = 200;
@@ -102,6 +103,10 @@ function ChatApp(props)
 
     const classes = useStyles(props);
     const selectedContact = contacts.find(_contact => (_contact.id === selectedContactId));
+
+    const backClickHandler = () => {
+        console.log("Hello")
+    }
 
     useEffect(() => {
         dispatch(Actions.getUserData());
@@ -203,6 +208,7 @@ function ChatApp(props)
                                             >
                                                 <Icon>chat</Icon>
                                             </IconButton>
+                                            <ArrowBackIcon  onClick={backClickHandler}/>
                                             <div className="flex items-center cursor-pointer" onClick={() => dispatch(Actions.openContactSidebar())}>
                                                 <div className="relative ml-8 mr-12">
                                                     <div className="absolute right-0 bottom-0 -m-4 z-10">
