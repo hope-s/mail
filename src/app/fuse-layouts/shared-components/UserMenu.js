@@ -21,7 +21,6 @@ function UserMenu(props)
 
     return (
         <React.Fragment>
-
             <Button className="h-64" onClick={userMenuClick}>
                 {user.data.photoURL ?
                     (

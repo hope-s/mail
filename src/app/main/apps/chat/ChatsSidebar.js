@@ -132,6 +132,8 @@ function ChatsSidebar(props)
                             onClose={handleMoreMenuClose}
                         >
                             <MenuItem onClick={handleMoreMenuClose}>Profile</MenuItem>
+                            <MenuItem onClick={handleMoreMenuClose}>Create Channel</MenuItem>
+                            <MenuItem onClick={handleMoreMenuClose}>Create Group</MenuItem>
                             <MenuItem onClick={handleMoreMenuClose}>Logout</MenuItem>
                         </Menu>
                     </div>
@@ -180,41 +182,90 @@ function ChatsSidebar(props)
                         const chatListArr = getFilteredArray([...chatListContacts], searchText);
 
                         return (
-                            <React.Fragment>
-                                <FuseAnimateGroup
-                                    enter={{
-                                        animation: "transition.expandIn"
-                                    }}
-                                    className="flex flex-col flex-shrink-0"
+                          <React.Fragment>
+                            <FuseAnimateGroup
+                              enter={{
+                                animation: "transition.expandIn",
+                              }}
+                              className="flex flex-col flex-shrink-0"
+                            >
+                              {chatListArr.length > 0 && (
+                                <Typography
+                                  className="font-300 text-20 px-16 py-24"
+                                  color="secondary"
                                 >
-                                    {chatListArr.length > 0 && (
-                                        <Typography
-                                            className="font-300 text-20 px-16 py-24"
-                                            color="secondary"
-                                        >
-                                            Chats
-                                        </Typography>
-                                    )}
+                                  Private Chats
+                                </Typography>
+                              )}
 
-                                    {chatListArr.map(contact => (
-                                        <ContactListItem key={contact.id} contact={contact} onContactClick={(contactId) => dispatch(Actions.getChat(contactId))}/>
-                                    ))}
+                              {chatListArr.map((contact) => (
+                                <ContactListItem
+                                  key={contact.id}
+                                  contact={contact}
+                                  onContactClick={(contactId) =>
+                                    dispatch(Actions.getChat(contactId))
+                                  }
+                                />
+                              ))}
 
-                                    {contactsArr.length > 0 && (
-                                        <Typography
-                                            className="font-300 text-20 px-16 py-24"
-                                            color="secondary"
-                                        >
-                                            Contacts
-                                        </Typography>
-                                    )}
+                              {contactsArr.length > 0 && ( // change contacts arr to channels arr
+                                <Typography
+                                  className="font-300 text-20 px-16 py-24"
+                                  color="secondary"
+                                >
+                                  Channels
+                                </Typography>
+                              )}
 
-                                    {contactsArr.map(contact => (
-                                        <ContactListItem key={contact.id} contact={contact} onContactClick={(contactId) => dispatch(Actions.getChat(contactId))}/>
-                                    ))}
-                                </FuseAnimateGroup>
-                            </React.Fragment>
-                        )
+                              {contactsArr.map((contact) => (
+                                <ContactListItem
+                                  key={contact.id}
+                                  contact={contact}
+                                  onContactClick={(contactId) =>
+                                    dispatch(Actions.getChat(contactId))
+                                  }
+                                />
+                              ))}
+                              {contactsArr.length > 0 && (
+                                <Typography
+                                  className="font-300 text-20 px-16 py-24"
+                                  color="secondary"
+                                >
+                                  Contacts
+                                </Typography>
+                              )}
+
+                              {contactsArr.map((contact) => (
+                                <ContactListItem
+                                  key={contact.id}
+                                  contact={contact}
+                                  onContactClick={(contactId) =>
+                                    dispatch(Actions.getChat(contactId))
+                                  }
+                                />
+                              ))}
+
+                              {contactsArr.length > 0 && ( // change contacts arr to groups arr
+                                <Typography
+                                  className="font-300 text-20 px-16 py-24"
+                                  color="secondary"
+                                >
+                                  Groups
+                                </Typography>
+                              )}
+
+                              {contactsArr.map((contact) => (
+                                <ContactListItem
+                                  key={contact.id}
+                                  contact={contact}
+                                  onContactClick={(contactId) =>
+                                    dispatch(Actions.getChat(contactId))
+                                  }
+                                />
+                              ))}
+                            </FuseAnimateGroup>
+                          </React.Fragment>
+                        );
                     }, [contacts, user, searchText, dispatch])
                     }
                 </List>

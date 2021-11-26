@@ -95,6 +95,7 @@ function ContactList(props)
     const ContactButton = ({contact}) => {
         return (
             <Tooltip title={contact.name} placement="left">
+                
                 <Button
                     onClick={() => handleContactClick(contact.id)}
                     className={clsx(classes.contactButton, {'active': (selectedContactId === contact.id)})}

@@ -29,7 +29,7 @@ function NavbarLayout1(props) {
   const navbar = useSelector(({ fuse }) => fuse.navbar);
   const folded = config.navbar.folded;
   const foldedAndClosed = folded && !navbar.foldedOpen;
-  const foldedAndOpened = folded && navbar.foldedOpen;
+  // const foldedAndOpened = folded && navbar.foldedOpen;
 
   return (
     <div

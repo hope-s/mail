@@ -173,7 +173,9 @@ function Chat(props)
                                         )}
                                     >
                                         {shouldShowContactAvatar(item, i) && (
+                                            
                                             <Avatar className="avatar absolute left-0 m-0 -ml-32" src={contact.avatar}/>
+
                                         )}
                                         <div className="bubble flex relative items-center justify-center p-12 max-w-full">
                                             <div className="leading-tight whitespace-pre-wrap">{item.message}</div>
