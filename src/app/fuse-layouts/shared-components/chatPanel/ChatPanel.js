@@ -90,41 +90,7 @@ function ChatPanel(props)
     }, [handleDocumentKeyDown, state]);
 
     return (
-        <div className={classes.root}>
-            <ClickAwayListener onClickAway={() => state && dispatch(Actions.closeChatPanel())}>
-                <div className={clsx(classes.panel, {'opened': state}, "flex flex-col")}>
-                    <AppBar position="static" elevation={1}>
-                        <Toolbar className="pl-12 pr-8">
-                            <div className="flex flex-1 items-center">
-                                {(!state || !selectedContactId) && (
-                                    <React.Fragment>
-                                        <IconButton color="inherit" onClick={ev => dispatch(Actions.openChatPanel())}>
-                                            <Icon className="text-32">chat</Icon>
-                                        </IconButton>
-                                        {!selectedContactId && (
-                                            <Typography className="ml-16 text-16" color="inherit">Team Chat</Typography>
-                                        )}
-                                    </React.Fragment>
-                                )}
-                                {state && selectedContact && (
-                                    <React.Fragment>
-                                        <Avatar className="ml-4" src={selectedContact.avatar}/>
-                                        <Typography className="ml-16 text-16" color="inherit">{selectedContact.name}</Typography>
-                                    </React.Fragment>
-                                )}
-                            </div>
-                            <IconButton onClick={ev => dispatch(Actions.closeChatPanel())} color="inherit">
-                                <Icon>close</Icon>
-                            </IconButton>
-                        </Toolbar>
-                    </AppBar>
-                    <Paper className="flex flex-1 flex-row min-h-px">
-                        <ContactList className="flex flex-shrink-0"/>
-                        <Chat className="flex flex-1 z-10"/>
-                    </Paper>
-                </div>
-            </ClickAwayListener>
-        </div>
+        <></>
     );
 }
 
