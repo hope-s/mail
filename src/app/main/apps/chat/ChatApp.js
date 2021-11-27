@@ -95,6 +95,7 @@ function ChatApp(props)
 {
     const dispatch = useDispatch();
     const chat = useSelector(({chatApp}) => chatApp.chat);
+    const backButtonState = useSelector(({chatApp}) => chatApp.backButton);
     const contacts = useSelector(({chatApp}) => chatApp.contacts.entities);
     const selectedContactId = useSelector(({chatApp}) => chatApp.contacts.selectedContactId);
     const mobileChatsSidebarOpen = useSelector(({chatApp}) => chatApp.sidebars.mobileChatsSidebarOpen);
@@ -105,9 +106,10 @@ function ChatApp(props)
     const selectedContact = contacts.find(_contact => (_contact.id === selectedContactId));
 
     const backClickHandler = () => {
-        console.log("Hello")
+        dispatch(Actions.turnBackFromChat(false));
+        
     }
-
+    console.log(backButtonState);
     useEffect(() => {
         dispatch(Actions.getUserData());
         dispatch(Actions.getContacts());
@@ -182,7 +184,7 @@ function ChatApp(props)
                     </Drawer>
 
                     <main className={clsx(classes.contentWrapper, "z-10")}>
-                        {!chat ?
+                        {!chat || !backButtonState ?
                             (
                                 <div className="flex flex-col flex-1 items-center justify-center p-24">
                                     <Paper className="rounded-full p-48">

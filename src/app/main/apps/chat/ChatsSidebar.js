@@ -202,8 +202,11 @@ function ChatsSidebar(props)
                                 <ContactListItem
                                   key={contact.id}
                                   contact={contact}
-                                  onContactClick={(contactId) =>
+                                  onContactClick={(contactId) => {
                                     dispatch(Actions.getChat(contactId))
+                                    dispatch(Actions.turnBackFromChat(true))
+                                  }
+
                                   }
                                 />
                               ))}
@@ -222,7 +225,10 @@ function ChatsSidebar(props)
                                   key={contact.id}
                                   contact={contact}
                                   onContactClick={(contactId) =>
-                                    dispatch(Actions.getChat(contactId))
+                                     {
+                                       dispatch(Actions.getChat(contactId));
+                                       dispatch(Actions.turnBackFromChat(true));
+                                     }
                                   }
                                 />
                               ))}

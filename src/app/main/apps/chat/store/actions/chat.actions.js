@@ -5,6 +5,7 @@ import {closeMobileChatsSidebar} from './sidebars.actions';
 export const GET_CHAT = '[CHAT APP] GET CHAT';
 export const REMOVE_CHAT = '[CHAT APP] REMOVE CHAT';
 export const SEND_MESSAGE = '[CHAT APP] SEND MESSAGE';
+export const TURN_BACK_FROM_CHAT = '[CHAT APP] TURN BACK FROM CHAT'
 
 export function getChat(contactId)
 {
