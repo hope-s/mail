@@ -1,28 +1,45 @@
 import React from "react";
-import Card from "@material-ui/core/Card";
-import CardActionArea from "@material-ui/core/CardActionArea";
-import CardMedia from "@material-ui/core/CardMedia";
-
+import "./Banner.css"
 
 
 const Banner = () => {
   return (
-    <a
-      href="https://www.google.com/search?q=lizard"
-      className="flex flex-col items-center mt-5"
-    >
-      <Card className="flex flex-col items-center max-w-400 min-h-auto">
-        <CardActionArea>
-          <CardMedia
-            component="img"
-            alt="Contemplative Reptile"
-            height="680"
-            image="/static/images/cards/contemplative-reptile.jpg"
-            title="Contemplative Reptile"
-          />
-        </CardActionArea>
-      </Card>
-    </a>
+    <div class="login-box">
+      <h2>New Banner</h2>
+      <form>
+        <div class="user-box">
+          <input type="text" name="" required="required" />
+          <label>Banner Title</label>
+        </div>
+        <div class="user-box">
+          <input type="text" name="" required="required" />
+          <label>Banner Link</label>
+        </div>
+        <div class="user-box">
+          <input type="text" name="" required="required" />
+          <label>Banner Image Link</label>
+        </div>
+        <div class="user-box">
+          <input type="date" name="" required />
+          <label className="bannerLabel">Banner Start Day</label>
+        </div>
+        <div class="user-box">
+          <input type="time" name="" required />
+          <label className="bannerLabel">Banner Start Time</label>
+        </div>
+        <div class="user-box">
+          <input type="time" name="" required />
+          <label className="bannerLabel">Banner Finish Time</label>
+        </div>
+        <a href="apps/chat">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          Submit
+        </a>
+      </form>
+    </div>
   );
 };
 
