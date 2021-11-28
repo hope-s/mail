@@ -210,7 +210,7 @@ function ChatApp(props)
                                             >
                                                 <Icon>chat</Icon>
                                             </IconButton>
-                                            <ArrowBackIcon  onClick={backClickHandler}/>
+                                            <ArrowBackIcon className="sm:hidden md:block"  onClick={backClickHandler}/>
                                             <div className="flex items-center cursor-pointer" onClick={() => dispatch(Actions.openContactSidebar())}>
                                                 <div className="relative ml-8 mr-12">
                                                     <div className="absolute right-0 bottom-0 -m-4 z-10">
