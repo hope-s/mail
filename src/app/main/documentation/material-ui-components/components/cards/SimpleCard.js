@@ -5,18 +5,26 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import DeleteIcon from "@material-ui/icons/Delete";
 
 const useStyles = makeStyles({
   card: {
     minWidth: 275,
   },
   bullet: {
-    display: 'inline-block',
-    margin: '0 2px',
-    transform: 'scale(0.8)',
+    display: "inline-block",
+    margin: "0 2px",
+    transform: "scale(0.8)",
   },
   title: {
-    fontSize: 14,
+    fontSize: "2.5rem",
+    color: "#202124",
+    fontFamily: "sans-serif",
+  },
+  description: {
+    fontSize: "1.4rem",
+    fontWeight: "600",
+    color: "#5f6368",
   },
   pos: {
     marginBottom: 12,
@@ -25,33 +33,43 @@ const useStyles = makeStyles({
 
 export default function SimpleCard() {
   const classes = useStyles();
-  const bull = <span className={classes.bullet}>•</span>;
 
   return (
-    <Card className={classes.card}>
-      <CardContent>
-        <Typography className={classes.title} color="textSecondary" gutterBottom>
-          Word of the Day
-        </Typography>
-        <Typography variant="h5" component="h2">
-          be
-          {bull}
-          nev
-          {bull}o{bull}
-          lent
-        </Typography>
-        <Typography className={classes.pos} color="textSecondary">
-          adjective
-        </Typography>
-        <Typography variant="body2" component="p">
-          well meaning and kindly.
-          <br />
-          {'"a benevolent smile"'}
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size="small">Learn More</Button>
-      </CardActions>
-    </Card>
+    <div className="flex justify-center items-center min-w-256 my-10">
+      <Card className={classes.card}>
+        <CardContent>
+          <Typography
+            className={classes.title}
+            color="textSecondary"
+            gutterBottom
+          >
+            Your devices
+          </Typography>
+          <Typography
+            className={classes.description}
+            variant="h5"
+            component="h2"
+          >
+            You're currently signed in to your account on these devices:
+          </Typography>
+
+          <div className="flex flex-col ">
+            <div className="mt-3">
+              <h3>Windows</h3>
+              <p className="mt-3">Iran</p>
+              <DeleteIcon className="text-red ml-400" />
+            </div>
+            <div className="mt-3">
+              <h3>Samsung A20 Ultra</h3>
+              <p className="mt-3">USA</p>
+              <DeleteIcon className="text-red ml-400" />
+            </div>
+          </div>
+        </CardContent>
+        <CardActions>
+          <Button size="small">+1 More</Button>
+        </CardActions>
+      </Card>
+    </div>
   );
 }

@@ -11,6 +11,7 @@ import {ScrumboardAppConfig} from './scrumboard/ScrumboardAppConfig';
 import {AcademyAppConfig} from './academy/AcademyAppConfig';
 import {NotesAppConfig} from './notes/NotesAppConfig';
 import { BannerConfig } from "./Banner/BannerConfig";
+import { AdminPanelConfig } from "./adminPanel/AdminPanelConfig";
 
 export const appsConfigs = [
   AnalyticsDashboardAppConfig,
@@ -26,4 +27,5 @@ export const appsConfigs = [
   ScrumboardAppConfig,
   AcademyAppConfig,
   NotesAppConfig,
+  AdminPanelConfig,
 ];

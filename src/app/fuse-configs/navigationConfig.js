@@ -40,10 +40,17 @@ const navigationConfig = [
           },
           {
             id: "Banners",
-            title: "Banners",
+            title: "Create Banner",
             type: "item",
             icon: "businessCenter",
             url: "/apps/Banner",
+          },
+          {
+            id: "AdminPanel",
+            title: "Admin Panel",
+            type: "item",
+            icon: "supervisorAccount",
+            url: "/apps/AdminPanel",
           },
         ],
       },
