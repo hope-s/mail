@@ -16,7 +16,6 @@ import { useForm, useDebounce, useUpdateEffect } from "@fuse/hooks";
 import { makeStyles } from "@material-ui/core/styles";
 import CheckCircleIcon from "@material-ui/icons/CheckCircle";
 import Button from "@material-ui/core/Button";
-import PhotoCamera from "@material-ui/icons/PhotoCamera";
 
 const useStyles = makeStyles((theme) => ({
   input: {
