@@ -31,11 +31,7 @@ const Banner = () => {
           <input type="time" name="" required />
           <label className="bannerLabel">Banner Finish Time</label>
         </div>
-        <a href="apps/chat">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
+        <a className="no-underline" href="apps/chat">
           Submit
         </a>
       </form>

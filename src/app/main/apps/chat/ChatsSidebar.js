@@ -162,7 +162,14 @@ function ChatsSidebar(props) {
               open={Boolean(moreMenuEl)}
               onClose={handleMoreMenuClose}
             >
-              <MenuItem onClick={handleMoreMenuClose}>Profile</MenuItem>
+              <MenuItem
+                onClick={() => {
+                  dispatch(Actions.openUserSidebar());
+                  setMoreMenuEl(null);
+                }}
+              >
+                Edit Profile
+              </MenuItem>
               <MenuItem>
                 <button type="button" onClick={handleChannelModalOpen}>
                   Create Channel

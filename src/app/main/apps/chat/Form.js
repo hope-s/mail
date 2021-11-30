@@ -10,11 +10,7 @@ const Form = (props) => {
           <input type="text" name="" required="required" />
           <label>{props.component} Name</label>
         </div>
-        <a href="apps/chat">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
+        <a className="no-underline" href="apps/chat">
           Submit
         </a>
       </form>
