@@ -109,7 +109,6 @@ function ChatApp(props)
         dispatch(Actions.turnBackFromChat(false));
         
     }
-    console.log(backButtonState);
     useEffect(() => {
         dispatch(Actions.getUserData());
         dispatch(Actions.getContacts());

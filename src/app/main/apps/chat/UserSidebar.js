@@ -16,6 +16,7 @@ import { useForm, useDebounce, useUpdateEffect } from "@fuse/hooks";
 import { makeStyles } from "@material-ui/core/styles";
 import CheckCircleIcon from "@material-ui/icons/CheckCircle";
 import Button from "@material-ui/core/Button";
+import EditProfileUseQuery from "../../../../core/services/api/EditProfile.api";
 
 const useStyles = makeStyles((theme) => ({
   input: {
@@ -36,7 +37,6 @@ const useStyles = makeStyles((theme) => ({
     color: "#8774e1",
     position: "absolute",
     right: "45%",
-    // bottom: "-5px",
     cursor: "pointer",
   },
 }));
@@ -45,8 +45,13 @@ function UserSidebar(props) {
   const classes = useStyles();
   const dispatch = useDispatch();
   const user = useSelector(({ chatApp }) => chatApp.user);
+  const editUser = EditProfileUseQuery();
 
   const { form, handleChange } = useForm(user ? { ...user } : false);
+
+  const handleEditProfile = (user) => {
+    console.log(user);
+  };
 
   const updateUserData = useDebounce((form) => {
     dispatch(Actions.updateUserData(form));
@@ -87,7 +92,12 @@ function UserSidebar(props) {
               type="file"
             />
             <label htmlFor="contained-button-file">
-              <Button className="mt-5 bg-purple-dark" variant="contained" color="secondary"  component="span">
+              <Button
+                className="mt-5 bg-purple-dark"
+                variant="contained"
+                color="secondary"
+                component="span"
+              >
                 Upload
               </Button>
             </label>
@@ -99,7 +109,11 @@ function UserSidebar(props) {
       </AppBar>
       <FuseScrollbars className="overflow-y-auto flex-1 p-24">
         <form>
-          <FormControl component="fieldset" className="w-full mb-16">
+          <FormControl
+            component="fieldset"
+            className="w-full mb-16"
+            onSubmit={handleEditProfile}
+          >
             <TextField
               label="Mood"
               name="mood"
@@ -140,10 +154,14 @@ function UserSidebar(props) {
               type="password"
             />
           </form>
-          <CheckCircleIcon
-            className={classes.doneBtn}
-            onClick={() => dispatch(Actions.closeUserSidebar())}
-          />
+          <button type="submit">
+            <CheckCircleIcon
+              className={classes.doneBtn}
+              onClick={() => {
+                dispatch(Actions.closeUserSidebar());
+              }}
+            />
+          </button>
         </form>
       </FuseScrollbars>
     </div>

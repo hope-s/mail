@@ -1,11 +1,7 @@
 import { toast } from "react-toastify";
 
-
-export const showToast = (
-  message,
-  type,
-  position = "bottom-right"
-) => {
+export const showToast = (message, type, position = "bottom-right") => {
+  // eslint-disable-next-line
   message.map((mes) => {
     switch (type) {
       case "success":
@@ -19,6 +15,8 @@ export const showToast = (
         break;
       case "info":
         toast.info(mes, { position: position });
+        break;
+      default:
         break;
     }
   });

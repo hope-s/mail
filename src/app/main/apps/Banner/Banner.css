@@ -11,17 +11,34 @@
   border-radius: 10px;
 }
 
-input[type=date]:required:invalid::-webkit-datetime-edit {
-    color: transparent;
+.file-input {
+  margin: 20px 0 20px 0;
+  /* background-color: #fff; */
 }
-input[type=date]:focus::-webkit-datetime-edit {
-    color: white !important;
+
+.imgLabel {
+  margin-top: 5px;
+  color: #fff;
+  font-size: 17px;
 }
-input[type=time]:required:invalid::-webkit-time-edit {
-    color: transparent;
+
+.imgButton {
+  position: relative;
+  top: -5px;
+  left: 120px;
 }
-input[type=time]:focus::-webkit-time-edit {
-    color: white !important;
+
+input[type="date"]:required:invalid::-webkit-datetime-edit {
+  color: transparent;
+}
+input[type="date"]:focus::-webkit-datetime-edit {
+  color: white !important;
+}
+input[type="time"]:required:invalid::-webkit-time-edit {
+  color: transparent;
+}
+input[type="time"]:focus::-webkit-time-edit {
+  color: white !important;
 }
 
 .login-box h2 {
@@ -63,10 +80,7 @@ input[type=time]:focus::-webkit-time-edit {
   left: 0;
   color: #03e9f4;
   font-size: 12px;
-
 }
-
-
 
 .login-box form a {
   position: relative;

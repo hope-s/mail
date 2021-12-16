@@ -22,6 +22,7 @@ import StatusIcon from "./StatusIcon";
 import ContactListItem from "./ContactListItem";
 import Banner from "./Banner";
 import Form from "./Form";
+import { useHistory } from "react-router-dom";
 
 const statusArr = [
   {
@@ -46,7 +47,7 @@ function ChatsSidebar(props) {
   const dispatch = useDispatch();
   const contacts = useSelector(({ chatApp }) => chatApp.contacts.entities);
   const user = useSelector(({ chatApp }) => chatApp.user);
-
+  let history = useHistory();
   const [searchText, setSearchText] = useState("");
   const [statusMenuEl, setStatusMenuEl] = useState(null);
   const [moreMenuEl, setMoreMenuEl] = useState(null);
@@ -58,6 +59,11 @@ function ChatsSidebar(props) {
   function handleMoreMenuClose(event) {
     setMoreMenuEl(null);
   }
+
+  const handleLogOutCLicked = (event) => {
+    localStorage.removeItem("token");
+    history.push("/login");
+  };
 
   function handleStatusMenuClick(event) {
     event.preventDefault();
@@ -198,7 +204,7 @@ function ChatsSidebar(props) {
                   <Form component="Group"></Form>
                 </Modal>
               </MenuItem>
-              <MenuItem onClick={handleMoreMenuClose}>Logout</MenuItem>
+              <MenuItem onClick={handleLogOutCLicked}>Logout</MenuItem>
             </Menu>
           </div>
         </Toolbar>

@@ -3,7 +3,7 @@ import * as Actions from '../actions';
 const initialState = null;
 
 const chat = function (state = initialState, action) {
-    console.log(action)
+    // console.log(action)
     switch ( action.type )
     {
         case Actions.GET_CHAT:
