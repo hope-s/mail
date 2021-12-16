@@ -3,16 +3,21 @@ import React from "react";
 import "./Banner.css";
 import { useHistory } from "react-router-dom";
 import createBannerUseQuery from "../../../../core/services/api/CreateBanner.api";
+import createTimeTableUseQuery from "../../../../core/services/api/CreateTimeTable.api";
 import { showToast } from "core/utils/show-toast";
 
-
 const Banner = () => {
-
   const createBannerQuery = createBannerUseQuery();
+  const createTimeTableQuery = createTimeTableUseQuery();
   let history = useHistory();
 
   const handleBannerSubmit = (e) => {
     e.preventDefault();
+    createTimeTableQuery.mutate({
+      day: e.target[3].value,
+      start: e.target[4].value,
+      end: e.target[5].value,
+    });
     createBannerQuery.mutate(
       {
         title: e.target[0].value,
@@ -26,7 +31,6 @@ const Banner = () => {
         },
       }
     );
-    
   };
 
   return (
@@ -75,7 +79,7 @@ const Banner = () => {
         </div>
         <button type="submit" className="btn btn-primary text-white">
           {/* <a className="no-underline" href="#"> */}
-            Submit
+          Submit
           {/* </a> */}
         </button>
       </form>

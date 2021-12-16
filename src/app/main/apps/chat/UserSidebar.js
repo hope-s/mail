@@ -50,7 +50,17 @@ function UserSidebar(props) {
   const { form, handleChange } = useForm(user ? { ...user } : false);
 
   const handleEditProfile = (user) => {
-    console.log(user);
+    editUser.mutate({
+      username: user.target[3].value,
+      email: user.target[4].value,
+      password: user.target[5].value,
+    });
+    // console.log(user.target[0].value); // mood
+    // console.log(user.target[1].value); // name
+    // console.log(user.target[2].value); // lastname
+    // console.log(user.target[3].value); // username
+    // console.log(user.target[4].value); // email
+    // console.log(user.target[5].value); // password
   };
 
   const updateUserData = useDebounce((form) => {
@@ -108,23 +118,24 @@ function UserSidebar(props) {
         </Toolbar>
       </AppBar>
       <FuseScrollbars className="overflow-y-auto flex-1 p-24">
-        <form>
-          <FormControl
+        <form onSubmit={handleEditProfile}>
+          {/* <FormControl
             component="fieldset"
             className="w-full mb-16"
             onSubmit={handleEditProfile}
-          >
-            <TextField
-              label="Mood"
-              name="mood"
-              className="w-full"
-              value={form.mood}
-              margin="normal"
-              multiline
-              onChange={handleChange}
-            />
-          </FormControl>
-          <form className={classes.root} noValidate autoComplete="off">
+          > */}
+          <TextField
+            label="Mood"
+            name="mood"
+            className="w-full"
+            value={form.mood}
+            margin="normal"
+            multiline
+            onChange={handleChange}
+          />
+          {/* </FormControl> */}
+          {/* <form className={classes.root} noValidate autoComplete="off"> */}
+          <div className={classes.root}>
             <TextField
               className={classes.textField}
               id="outlined-basic"
@@ -149,19 +160,28 @@ function UserSidebar(props) {
             <TextField
               className={classes.textField}
               id="outlined-basic"
+              label="Email"
+              variant="outlined"
+              defaultValue="JohnDoe@gmail.com"
+              type="email"
+            />
+            <TextField
+              className={classes.textField}
+              id="outlined-basic"
               label="Password"
               variant="outlined"
               type="password"
             />
-          </form>
-          <button type="submit">
-            <CheckCircleIcon
-              className={classes.doneBtn}
-              onClick={() => {
-                dispatch(Actions.closeUserSidebar());
-              }}
-            />
-          </button>
+            {/* </form> */}
+            <button type="submit">
+              <CheckCircleIcon
+                className={classes.doneBtn}
+                onClick={() => {
+                  dispatch(Actions.closeUserSidebar());
+                }}
+              />
+            </button>
+          </div>
         </form>
       </FuseScrollbars>
     </div>
